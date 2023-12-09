@@ -9,6 +9,8 @@ import {
 } from 'react-hook-form';
 import useRegisterModal from '../hooks/useRegisterModal';
 import Model from './Modal';
+import Heading from '../Heading';
+
 
 
 const RegisterModal = () => {
@@ -25,28 +27,36 @@ const RegisterModal = () => {
     });
     const onSubmit: SubmitHandler<FieldValues> = (data) => {
         setIsLoading(true);
-        axios.post('/api/auth/register', data).then(() => {
-                RegisterModal.onClose(); 
+        axios.post('/api/register', data).then(() => {
+            RegisterModal.onClose();
         })
-        .catch((error) => {
-            console.log(error);
-        
-        })
-        .finally(() => {
-            setIsLoading(false);
-        });
+            .catch((error) => {
+                console.log(error);
+
+            })
+            .finally(() => {
+                setIsLoading(false);
+            });
     }
 
+    const bodyContent = (
+        <div className='flex flex-col gap-4'>
+            <Heading title='Welcome to Airbnb'
+                subtitle='Create an acount'
+            />
+
+        </div>
+    )
 
     return (
         <Model
-        
-        disabled={isLoading}
-        isOpen={RegisterModal.isOpen} 
-        title='Register'
-        actionLabel='Continue'
-        onClose={RegisterModal.onClose}
-        onSubmit={handleSubmit(onSubmit)}
+            disabled={isLoading}
+            isOpen={RegisterModal.isOpen}
+            title='Register'
+            actionLabel='Continue'
+            onClose={RegisterModal.onClose}
+            onSubmit={handleSubmit(onSubmit)}
+            body={bodyContent}
         />
     );
 }

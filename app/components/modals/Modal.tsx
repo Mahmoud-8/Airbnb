@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useCallback, useEffect, useState } from 'react';
-import {IoMdClose } from 'react-icons/io'
+import { IoMdClose } from 'react-icons/io'
 import Button from '../Button';
 
 interface ModalProps {
@@ -79,20 +79,21 @@ const Model: React.FC<ModalProps> = ({
 
                                 </button>
                                 <div className='text-lg font-semibold'>
-                                         {title}
+                                    {title}
                                 </div>
                             </div>
                             {/* body */}
-                            <div className='relative p-6 flex-auto'>
+                            <div className='relative p-6 flex-auto'>  {body}
+
                             </div>
                             {/* footer */}
                             <div className='flex flex-col gap-2 p-6'>
-                              <div className='flex flex-row items-center gap-4 w-full '>
-                                {secondaryAction && secondaryActionLabel && (
-                              <Button outline disabled={disabled} label={secondaryActionLabel} onClick={handleSecondaryAction} /> )}
-                                <Button disabled={disabled} label={actionLabel} onClick={handleSubmit} />
+                                <div className='flex flex-row items-center gap-4 w-full '>
+                                    {secondaryAction && secondaryActionLabel && (
+                                        <Button outline disabled={disabled} label={secondaryActionLabel} onClick={handleSecondaryAction} />)}
+                                    <Button disabled={disabled} label={actionLabel} onClick={handleSubmit} />
 
-                              </div>
+                                </div>
                             </div>
                         </div>
                     </div>
