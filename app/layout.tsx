@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import Navbar from './components/navbar/Navbar'
 import ClientOnly from './components/ClientOnly'
+import Model from './components/modal/Modal'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -22,6 +23,8 @@ export default function RootLayout({
       <Navbar />
 
         <ClientOnly>
+        <Model isOpen />
+
         </ClientOnly>
 
         {children}
