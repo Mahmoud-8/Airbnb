@@ -9,7 +9,8 @@ interface ClientOnlyProps {
 const ClientOnly: React.FC<ClientOnlyProps> = ({ 
     Children}) => {
     const [hasMounted, setHasMounted] = useState(false);
-    // This will only run on the client-side
+
+    
     useEffect(() => {
         setHasMounted(true);
     }, []);
