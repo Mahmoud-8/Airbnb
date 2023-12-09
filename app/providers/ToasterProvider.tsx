@@ -1,8 +1,9 @@
 'use client'
+// ToasterProvider.tsx
+import React from 'react';
 import { Toaster } from 'react-hot-toast';
 
-const ToasterProvider = () => {
-    return ( 
-        <Toaster />
-     );
-}
+export const ToasterProvider: React.FC = () => {
+  return <Toaster />;
+};
+
