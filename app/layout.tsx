@@ -21,9 +21,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
       <Navbar />
+      <Model title='Hello' isOpen />
 
         <ClientOnly>
-        <Model isOpen />
 
         </ClientOnly>
 
