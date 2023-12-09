@@ -5,7 +5,6 @@ import Navbar from './components/navbar/Navbar'
 import ClientOnly from './components/ClientOnly'
 import RegisterModal from './components/modals/RegisterModal'
 
-
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
