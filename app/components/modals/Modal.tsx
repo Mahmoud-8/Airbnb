@@ -83,7 +83,8 @@ const Model: React.FC<ModalProps> = ({
                                 </div>
                             </div>
                             {/* body */}
-                            <div className='relative p-6 flex-auto'>  {body}
+                            <div className='relative p-6 flex-auto'> 
+                             {body}
 
                             </div>
                             {/* footer */}
@@ -94,6 +95,7 @@ const Model: React.FC<ModalProps> = ({
                                     <Button disabled={disabled} label={actionLabel} onClick={handleSubmit} />
 
                                 </div>
+                                {footer}
                             </div>
                         </div>
                     </div>
