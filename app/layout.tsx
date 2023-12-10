@@ -6,6 +6,7 @@ import RegisterModal from './components/modals/RegisterModal'
 import { ToasterProvider } from './providers/ToasterProvider';
 
 import { Inter } from 'next/font/google'
+import LoginModal from './components/modals/LoginModal'
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -28,6 +29,7 @@ export default function RootLayout({
         <RegisterModal />
         
         <ToasterProvider />
+        <LoginModal />
 
         <ClientOnly>
         </ClientOnly>

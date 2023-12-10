@@ -11,11 +11,14 @@ import Heading from '../Heading';
 import Input from '../inputs/Input';
 import {toast} from 'react-hot-toast';
 import Button from '../Button'; 
+import useLoginModal from '../hooks/useLoginModal';
 
 
 
-const RegisterModal = () => {
+const LoginModal = () => {
     const RegisterModal = useRegisterModal();
+
+    const loginModal = useLoginModal()
     const [isLoading, setIsLoading] = useState(false);
     const {
         register, handleSubmit, formState: { errors }
@@ -106,10 +109,10 @@ const RegisterModal = () => {
     return (
         <Model
             disabled={isLoading}
-            isOpen={RegisterModal.isOpen}
+            isOpen={loginModal.isOpen}
             title='Register'
             actionLabel='Continue'
-            onClose={RegisterModal.onClose}
+            onClose={loginModal.onClose}
             onSubmit={handleSubmit(onSubmit)}
             body={bodyContent}
             footer={footerContent}
@@ -117,4 +120,4 @@ const RegisterModal = () => {
     );
 }
 
-export default RegisterModal;
+export default LoginModal;
