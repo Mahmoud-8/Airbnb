@@ -1,8 +1,7 @@
 'use client';
 
 interface ContainerProps {
-    Children: React.ReactNode;
-
+    children: React.ReactNode;
 }
 
 const Container: React.FC<ContainerProps> = ({ children }) => {

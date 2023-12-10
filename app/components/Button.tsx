@@ -10,8 +10,6 @@ interface ButtonProps {
     small?: boolean;
     icon?: IconType;
 }
-
-
 const Button: React.FC<ButtonProps> = (
     {
         onClick,

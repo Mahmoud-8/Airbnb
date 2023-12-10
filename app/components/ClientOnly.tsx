@@ -7,7 +7,7 @@ interface ClientOnlyProps {
 }
 
 const ClientOnly: React.FC<ClientOnlyProps> = ({ 
-    Children}) => {
+    children}) => {
     const [hasMounted, setHasMounted] = useState(false);
 
     
@@ -20,7 +20,7 @@ const ClientOnly: React.FC<ClientOnlyProps> = ({
 
     return ( 
         <>
-        {Children}
+        {children}
         </>
 
      );
