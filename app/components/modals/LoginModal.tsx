@@ -6,12 +6,12 @@ import { FcGoogle } from "react-icons/fc";
 import { useCallback, useState } from 'react';
 import { FieldValues, SubmitHandler, set, useForm } from 'react-hook-form';
 import useRegisterModal from '../hooks/useRegisterModal';
+import useLoginModal from '../hooks/useLoginModal';
 import Model from './Modal';
 import Heading from '../Heading';
 import Input from '../inputs/Input';
 import {toast} from 'react-hot-toast';
 import Button from '../Button'; 
-import useLoginModal from '../hooks/useLoginModal';
 import { useRouter } from 'next/navigation';
 
 
@@ -88,11 +88,13 @@ const LoginModal = () => {
             icon={AiFillGithub}
             onClick={() => {}} />
             <div className=' text-neutral-500 text-center mt-4 font-light'>
-                <div className='justify-center flex flex-row items-center gap-2'>
+                <div className='justify-center flex flex-row items-center 
+                gap-2'>
                     <div>
                         Already have an account?
                     </div>
-                    <div onClick={RegisterModal.onClose} className='text-neutral-800 cursor-pointer hover:underline'>
+                    <div onClick={RegisterModal.onClose} className='text-
+                    neutral-800 cursor-pointer hover:underline'>
                        Log in
                     </div>
                 </div>

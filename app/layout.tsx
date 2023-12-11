@@ -6,6 +6,7 @@ import RegisterModal from './components/modals/RegisterModal'
 import { ToasterProvider } from './providers/ToasterProvider';
 import { Inter } from 'next/font/google'
 import LoginModal from './components/modals/LoginModal'
+
 import getCurrentUser from './actions/getCurrentUser'
 
 

@@ -39,7 +39,6 @@ export const authOptions: AuthOptions = {
             const isCorrectPassword = await bcrypt.compare(
                 credentials.password,
                 user.hashedPassword
-            
             );
             if (!isCorrectPassword) {
                 throw new Error('Invalid credentials');
@@ -57,8 +56,6 @@ export const authOptions: AuthOptions = {
         strategy: "jwt"
     },
     secret: process.env.NEXTAUTH_SECRET,
-
-
 };
 
 export default NextAuth(authOptions);

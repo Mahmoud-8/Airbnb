@@ -6,14 +6,13 @@ import Search from "./Search";
 import UserMenu from "./UserMenu";
 
 
-interface navbarProps {
-    currentUser?: User|null;
+interface NavbarProps {
+    currentUser?: User| null;
 }
 
-const Navbar: React.FC<navbarProps>  = ({
+const Navbar: React.FC<NavbarProps>  = ({
     currentUser
 }) => {
-    console.log({ currentUser});
     return (
         <div className="fixed w-full bg-white z-10 shadow-sm" >
             <div className="py-4 border-b-[1px]">
@@ -22,7 +21,7 @@ const Navbar: React.FC<navbarProps>  = ({
                       justify-between gap-3 md:gap-0">
                         <Logo />
                         <Search />
-                        <UserMenu />
+                        <UserMenu currentUser={currentUser} />
                     </div>
                 </Container>
             </div>
