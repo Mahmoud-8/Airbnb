@@ -2,10 +2,13 @@ import type { Metadata } from 'next'
 import './globals.css'
 import Navbar from './components/navbar/Navbar'
 import ClientOnly from './components/ClientOnly'
+
 import RegisterModal from './components/modals/RegisterModal'
+import LoginModal from './components/modals/LoginModal'
+
+
 import { ToasterProvider } from './providers/ToasterProvider';
 import { Inter } from 'next/font/google'
-import LoginModal from './components/modals/LoginModal'
 
 import getCurrentUser from './actions/getCurrentUser'
 
@@ -30,9 +33,9 @@ export default async function RootLayout({
         <Navbar currentUser={currentUser} />
 
         <RegisterModal />
-        
-        <ToasterProvider />
         <LoginModal />
+
+        <ToasterProvider />
 
         <ClientOnly>
         </ClientOnly>
