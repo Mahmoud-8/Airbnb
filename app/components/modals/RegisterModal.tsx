@@ -72,7 +72,6 @@ const RegisterModal = () => {
                 register={register}
                 errors={errors}
                 />
-
         </div>
     )
     const footerContent = (
@@ -97,12 +96,9 @@ const RegisterModal = () => {
                        Log in
                     </div>
                 </div>
-
             </div>
-
         </div>
     )
-
     return (
         <Model
             disabled={isLoading}
@@ -116,5 +112,4 @@ const RegisterModal = () => {
         />
     );
 }
-
 export default RegisterModal;
