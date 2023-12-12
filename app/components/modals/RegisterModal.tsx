@@ -69,9 +69,9 @@ const RegisterModal = () => {
                 type='password'
                 label='Password'
                 disabled={isLoading}
-                required
                 register={register}
                 errors={errors}
+                required
                 />
         </div>
     )
@@ -83,11 +83,11 @@ const RegisterModal = () => {
             label='Continue with Google'
             icon={FcGoogle}
             onClick={() => {}} />
+            
              <Button
             outline
             label='Continue with Github'
             icon={AiFillGithub}
-
             onClick={() => signIn('github')} />
 
             <div className=' text-neutral-500 text-center mt-4 

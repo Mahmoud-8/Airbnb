@@ -32,14 +32,12 @@ const LoginModal = () => {
     });
     const onSubmit: SubmitHandler<FieldValues> = (data) => {
         setIsLoading(true);
-        console.log(data);
         
        signIn('credentials', {
         ...data, 
         redirect: false,
        })
        .then((callback) => {
-        console.log(callback);
         
         setIsLoading(false);
 
@@ -48,8 +46,8 @@ const LoginModal = () => {
             router.refresh();
             loginModal.onClose();
         }
-        if (callback?.error) {
-            toast.error(callback.error);
+        else {
+            toast.error(callback?.error?.toString() || 'Something went wrong');
         }
        })
     }
