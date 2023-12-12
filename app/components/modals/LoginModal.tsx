@@ -1,5 +1,4 @@
 'use client';
-
 import { useCallback, useState } from 'react';
 import {toast} from 'react-hot-toast';
 
@@ -33,11 +32,15 @@ const LoginModal = () => {
     });
     const onSubmit: SubmitHandler<FieldValues> = (data) => {
         setIsLoading(true);
+        console.log(data);
+        
        signIn('credentials', {
         ...data, 
         redirect: false,
        })
        .then((callback) => {
+        console.log(callback);
+        
         setIsLoading(false);
 
         if (callback?.ok) {

@@ -11,12 +11,12 @@ import { SafeUser } from '@/app/types';
 
 interface UserMenuProps {
     currentUser?: SafeUser | null;
-} 
+}
 
-const UserMenu: React.FC<UserMenuProps>  = ({
+const UserMenu: React.FC<UserMenuProps> = ({
     currentUser
 }) => {
-    const RegisterModal = useRegisterModal ();
+    const RegisterModal = useRegisterModal();
     const loginModal = useLoginModal();
     const [isOpen, setIsOpen] = useState(false);
 
@@ -27,13 +27,15 @@ const UserMenu: React.FC<UserMenuProps>  = ({
         <div className="relative">
             <div className="flex flex-row items-center gap-3">
                 <div onClick={() => { }}
-                    className="hidden md:block text-sm font-semibold py-3 
-                     py-4 rounded-full hover:bg-neutral-100 transition 
+                    className="hidden md:block text-sm font- 
+                     semibold py-3 
+                     py-4 rounded-full hover:bg-neutral-100 
+                      transition 
                       cursor-pointer">
                     Airbnb your home
                 </div>
                 <div onClick={toggleOpen} className="
-                p-4 md:py-1 md:px-2 border-[1px] border-neutral-200 flex 
+                p-4 md:py-1 md:px-2 border-[1px] border-neutral- 200 flex 
                  flex-row items-center gap-3 rounded-full cursor-ponter 
                   hover:shadow-md 
                  transition ">
@@ -48,29 +50,32 @@ const UserMenu: React.FC<UserMenuProps>  = ({
                 shadow-md rounded-xl md-w-3/4 overflow-hidden text-sm">
                     <div className="flex flex-col cursor-pointer">
                         {currentUser ? (
-                              <> 
-                              <MenuItem onClick={() => {}} 
-                              label='My trips' />
-                              <MenuItem onClick={() => {}} 
-                               label=' My favorites' />
-                               <MenuItem onClick={() => {}} 
-                               label=' My reservations' />
-                               <MenuItem onClick={() => {}} 
-                               label=' My properties' />
-                               <MenuItem onClick={() => {}} 
-                               label=' My Airbnb my home' />
-                              <hr />
-                              <MenuItem onClick={() => signOut()} 
-                              label=' Logout' />
+                            <>
+                                <MenuItem onClick={() => { }}
+                                    label='My trips' />
+                                <MenuItem onClick={() => { }}
+                                    label=' My favorites' />
+                                <MenuItem onClick={() => { }}
+                                    label=' My reservations' />
+                                <MenuItem onClick={() => { }}
+                                    label=' My properties' />
+                                <MenuItem onClick={() => { }}
+                                    label=' My Airbnb my home' />
+                                <hr />
+                                <MenuItem onClick={() => 
+                                 signOut()}
+                                    label=' Logout' />
 
-                              </>
+                            </>
                         ) : (
-                        <> 
-                        <MenuItem onClick={loginModal.onOpen} 
-                        label='Login' />
-                        <MenuItem onClick={RegisterModal.onOpen } 
-                         label='Sign up' />
-                        </>
+                            <>
+                                <MenuItem onClick= 
+                                 {loginModal.onOpen}
+                                    label='Login' />
+                                <MenuItem onClick= 
+                                 {RegisterModal.onOpen}
+                                    label='Sign up' />
+                            </>
                         )}
 
                     </div>
