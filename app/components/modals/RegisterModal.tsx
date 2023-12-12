@@ -5,7 +5,7 @@ import { AiFillGithub } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
 import { useCallback, useState } from 'react';
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
-import useRegisterModal from '../hooks/useRegisterModal';
+import useRegisterModal from '../../hooks/useRegisterModal';
 import Model from './Modal';
 import Heading from '../Heading';
 import Input from '../inputs/Input';
@@ -82,7 +82,7 @@ const RegisterModal = () => {
             outline
             label='Continue with Google'
             icon={FcGoogle}
-            onClick={() => {}} />
+            onClick={() => signIn('google')} />
             
              <Button
             outline

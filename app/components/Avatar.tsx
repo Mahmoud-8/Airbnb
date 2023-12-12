@@ -15,6 +15,7 @@ const Avatar: React.FC<AvatarProps> = ({
         width="30"
         alt="Avatar"
         src={src || "/images/placeholder.jpg"}
+        
         />
      );
 }

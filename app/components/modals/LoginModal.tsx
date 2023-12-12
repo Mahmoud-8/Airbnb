@@ -1,4 +1,5 @@
 'use client';
+
 import { useCallback, useState } from 'react';
 import {toast} from 'react-hot-toast';
 
@@ -6,15 +7,13 @@ import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import { signIn } from 'next-auth/react';
 import { FcGoogle } from "react-icons/fc";
 import { AiFillGithub } from "react-icons/ai";
-import useRegisterModal from '../hooks/useRegisterModal';
-import useLoginModal from '../hooks/useLoginModal';
+import useRegisterModal from '../../hooks/useRegisterModal';
+import useLoginModal from '../../hooks/useLoginModal';
 import Model from './Modal';
 import Heading from '../Heading';
 import Input from '../inputs/Input';
 import Button from '../Button'; 
 import { useRouter } from 'next/navigation';
-
-
 
 const LoginModal = () => {
     const router = useRouter();
@@ -38,7 +37,6 @@ const LoginModal = () => {
         redirect: false,
        })
        .then((callback) => {
-        
         setIsLoading(false);
 
         if (callback?.ok) {
@@ -46,8 +44,8 @@ const LoginModal = () => {
             router.refresh();
             loginModal.onClose();
         }
-        else {
-            toast.error(callback?.error?.toString() || 'Something went wrong');
+        if (callback?.error) {
+            toast.error(callback.error);
         }
        })
     }
@@ -80,7 +78,6 @@ const LoginModal = () => {
                 register={register}
                 errors={errors}
                 />
-
         </div>
     )
     const footerContent = (
@@ -90,24 +87,19 @@ const LoginModal = () => {
             outline
             label='Continue with Google'
             icon={FcGoogle}
-            onClick={() => signIn('Google')} />
+            onClick={() => signIn('google')} />
              <Button
             outline
             label='Continue with Github'
             icon={AiFillGithub}
             onClick={() => signIn('github')} />
-            <div className=' text-neutral-500 text-center mt-4 
-             font- 
-             light'>
-                <div className='justify-center flex flex-row 
-                 items- 
-                 center 
+            <div className=' text-neutral-500 text-center mt-4 font-light'>
+                <div className='justify-center flex flex-row items-center 
                 gap-2'>
                     <div>
                         Already have an account?
                     </div>
-                    <div onClick={RegisterModal.onClose} 
-                     className='text-
+                    <div onClick={RegisterModal.onClose} className='text-
                     neutral-800 cursor-pointer hover:underline'>
                        Log in
                     </div>
