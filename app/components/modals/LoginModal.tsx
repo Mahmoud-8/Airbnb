@@ -1,5 +1,4 @@
 'use client';
-
 import { useCallback, useState } from 'react';
 import {toast} from 'react-hot-toast';
 
@@ -49,7 +48,7 @@ const LoginModal = () => {
        })
     }
 
-    const onToggle = useCallback(() => {
+    const toggle = useCallback(() => {
         loginModal.onClose();
         RegisterModal.onOpen();
       }, [loginModal, RegisterModal])
@@ -96,11 +95,11 @@ const LoginModal = () => {
                 <div className='justify-center flex flex-row items-center 
                 gap-2'>
                     <div>
-                        Already have an account?
+                        First time using Airbnb?
                     </div>
-                    <div onClick={RegisterModal.onClose} className='text-
+                    <div onClick={toggle} className='text-
                     neutral-800 cursor-pointer hover:underline'>
-                       Log in
+                       Create an account
                     </div>
                 </div>
 

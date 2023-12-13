@@ -6,6 +6,7 @@ import { FcGoogle } from "react-icons/fc";
 import { useCallback, useState } from 'react';
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import useRegisterModal from '../../hooks/useRegisterModal';
+import useLoginModal from '../../hooks/useLoginModal';
 import Model from './Modal';
 import Heading from '../Heading';
 import Input from '../inputs/Input';
@@ -17,6 +18,7 @@ import { signIn } from 'next-auth/react';
 
 const RegisterModal = () => {
     const RegisterModal = useRegisterModal();
+    const loginModal = useLoginModal();
     const [isLoading, setIsLoading] = useState(false);
     const {
         register, handleSubmit, formState: { errors }
@@ -42,6 +44,12 @@ const RegisterModal = () => {
                 setIsLoading(false);
             });
     }
+
+    const toggle = useCallback(() => {
+        RegisterModal.onClose();
+        loginModal.onOpen();
+      }, [loginModal, RegisterModal])
+    
 
     const bodyContent = (
         <div className='flex flex-col gap-4'>
@@ -97,7 +105,7 @@ const RegisterModal = () => {
                     <div>
                         Already have an account?
                     </div>
-                    <div onClick={RegisterModal.onClose} 
+                    <div onClick={toggle} 
                      className='text-neutral-800 cursor-pointer 
                       hover:underline'>
                        Log in
