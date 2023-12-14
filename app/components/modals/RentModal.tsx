@@ -6,6 +6,9 @@ import { useMemo } from "react";
 import { useForm, FieldValues } from "react-hook-form";
 
 
+import useRentModal from "@/app/hooks/useRentModal";
+import Modal from "./Modal";
+import Heading from "../Heading";
 import { categories } from "../navbar/Categories";
 import CategoryInput from "../inputs/CategoryInput";
 
