@@ -12,7 +12,7 @@ body,
 
 .leaflet-bottom,
 .leaflet-control,
-.leaflet-panee,
+.leaflet-pane,
 .leaflet-top {
     z-index: 0 !important;
 }
