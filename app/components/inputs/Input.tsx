@@ -13,7 +13,8 @@ interface InputProps {
     required?: boolean;
     register: UseFormRegister<FieldValues>,
     errors: FieldErrors
-}
+  }
+  
 const Input: React.FC<InputProps> = ({
     id, label, type, disabled, formatPrice, required, register, errors
 

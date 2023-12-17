@@ -40,11 +40,12 @@ const RentModal = () => {
         handleSubmit,
         setValue,
         watch,
+        formState: { errors },
         reset,
-        formState: { errors }
+
     } = useForm<FieldValues>({
         defaultValues: {
-            category: "",
+            category: '',
             location: "null",
             guestCount: 1,
             roomCount: 1,
@@ -52,7 +53,8 @@ const RentModal = () => {
             imageSrc: '',
             price: 1,
             title: '',
-            description: ''
+            description: '',
+
         }
             
     });
@@ -86,30 +88,32 @@ const RentModal = () => {
     const onNext = () => {
         setStep((value) => value + 1 );
     }
-
+    
     const onSubmit: SubmitHandler<FieldValues> = (data) => {
         if (step !== STEPS.PRICE) {
           return onNext();
         }
+
+
         setIsLoading(true);
 
 
         
-        axios.post('/api/listings', data)
-        .then(() => {
-          toast.success('Listing created!');
-          router.refresh();
-          reset();
-          setStep(STEPS.CATEGORY)
-          rentModal.onClose();
-        })
-        .catch(() => {
-          toast.error('Something went wrong.');
-        })
-        .finally(() => {
-          setIsLoading(false);
-        })
-      }
+       axios.post('/api/listings', data)
+    .then(() => {
+      toast.success('Listing created!');
+      router.refresh();
+      reset();
+      setStep(STEPS.CATEGORY)
+      rentModal.onClose();
+    })
+    .catch(() => {
+      toast.error('Something went wrong.');
+    })
+    .finally(() => {
+      setIsLoading(false);
+    })
+  }
 
       
 
@@ -118,7 +122,6 @@ const RentModal = () => {
             return "Create";
         }
         return "Next";
-
     }, [step]);
 
     const secondaryActionLabel = useMemo(() => {
@@ -268,11 +271,11 @@ const RentModal = () => {
         <Modal
             isOpen={rentModal.isOpen}
             onClose={rentModal.onClose}
+            title="Airbnb your home!"
             onSubmit={handleSubmit(onSubmit)}
             actionLabel={actionLabel}
             secondaryActionLabel={secondaryActionLabel}
             secondaryAction={step === STEPS.CATEGORY ? undefined : onBack}
-            title="Airbnb your home!"
             body={bodyContent}
         />
     );
