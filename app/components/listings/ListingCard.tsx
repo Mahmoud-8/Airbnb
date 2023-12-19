@@ -8,6 +8,7 @@ import { useCallback, useMemo } from "react";
 import { format } from "date-fns";
 import Image from "next/image";
 import HeartButton from "../HeartButton";
+import Button from "../Button";
 
 
 interface ListingCardProps {
@@ -84,9 +85,30 @@ const ListingCard: React.FC<ListingCardProps> = ( {
 
                  </div>
                 </div>
+                <div className="font-semibold text-lg">
+                    {location?.region}, {location?.label}
+                </div>
+                <div className="font-light text-neutral-500">
+                    {reservationDate || data.category}
+                </div>
+                <div className="flex flex-row items-center gap-1">
+                    <div className="font-semibold">
+                        ${price}
+                    </div>  
+                    {!reservation && (
+                        <div className="font-light">
+                            night
+                        </div> )}
+                        {onAction && actionLable && (
+                            <Button 
+                            disabled={disabled}
+                            small
+                            label={actionLable}
+                            onClick={handleCancel} />
+                        )}
 
+                </div>
             </div>
-
         </div>
      );
 }
