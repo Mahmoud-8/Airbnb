@@ -29,20 +29,21 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        
-        <Navbar currentUser={currentUser} />
+      <ClientOnly>
 
-        <RentModal />
+      <ToasterProvider />
+      <RentModal />
+      <LoginModal />
+      <RegisterModal />
+      <Navbar currentUser={currentUser} />
+       </ClientOnly>
 
-        <LoginModal />
-        <RegisterModal />
-
-        <ToasterProvider />
-
-        <ClientOnly>
+        <div className='pb-20 pt-28'>
         {children}
 
-        </ClientOnly>
+
+        </div>
+
 
       </body>
     </html>
