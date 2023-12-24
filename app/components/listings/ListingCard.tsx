@@ -1,7 +1,6 @@
 'use client';
 
-import { Listing, Reservation } from "@prisma/client";
-import { SafeUser, SafeListing } from "@/app/types";
+import { SafeUser, SafeListing, SafeReservation } from "@/app/types";
 import { useRouter } from "next/navigation";
 import useCountries from "@/app/hooks/useCountries";
 import { useCallback, useMemo } from "react";
@@ -13,7 +12,7 @@ import Button from "../Button";
 
 interface ListingCardProps {
     data: SafeListing;
-    reservation?: Reservation;
+    reservation?: SafeReservation;
     onAction?: (is: string) => void;
     disabled?: boolean;
     actionLable?: string;
@@ -36,7 +35,6 @@ const ListingCard: React.FC<ListingCardProps> = ( {
     const handleCancel = useCallback(
          (e: React.MouseEvent<HTMLButtonElement>) => {
             e.stopPropagation();
-
 
             if (disabled) {
                 return;
