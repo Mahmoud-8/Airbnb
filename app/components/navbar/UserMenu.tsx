@@ -2,6 +2,8 @@
 import { AiOutlineMenu } from 'react-icons/ai'
 import Avatar from '../Avatar';
 import { useState, useCallback } from 'react';
+import { signOut } from 'next-auth/react';
+
 import MenuItem from './MenuItem';
 
 
@@ -10,8 +12,8 @@ import useLoginModal from '../../hooks/useLoginModal';
 import useRentModal from '../../hooks/useRentModal';
 
 
-import { signOut } from 'next-auth/react';
 import { SafeUser } from '@/app/types';
+import { useRouter } from 'next/navigation';
 
 
 interface UserMenuProps {
@@ -22,6 +24,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
     currentUser
 }) => {
 
+    const router = useRouter();
     const RegisterModal = useRegisterModal();
     const loginModal = useLoginModal();
     const rentModal = useRentModal();
@@ -80,16 +83,21 @@ const UserMenu: React.FC<UserMenuProps> = ({
      <div className="flex flex-col cursor-pointer">
          {currentUser ? (
          <>
-     <MenuItem onClick={() => { }}
+     <MenuItem onClick={() => router.push("/trips") }
             label='My trips' />
+
         <MenuItem onClick={() => { }}
          label=' My favorites' />
+
      <MenuItem onClick={() => { }}
          label=' My reservations' />
+
         <MenuItem onClick={() => { }}
         label=' My properties' />
+
         <MenuItem onClick={rentModal.onOpen}
       label=' My Airbnb my home' />
+
           <hr />
        <MenuItem onClick={() => 
         signOut()}
@@ -100,6 +108,8 @@ const UserMenu: React.FC<UserMenuProps> = ({
           <MenuItem onClick= 
          {loginModal.onOpen}
          label='Login' />
+
+
       <MenuItem onClick= 
       {RegisterModal.onOpen}
        label='Sign up' />
