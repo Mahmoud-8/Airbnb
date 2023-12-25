@@ -30,7 +30,6 @@ const TripsClient: React.FC<TripsClientProps> = ({
         setDeletingId(id);
 
 
-
         axios.delete(`/api/reservations/${id}`)
         .then(() => {
             toast.success('Reservation cancelled');
@@ -52,7 +51,7 @@ const TripsClient: React.FC<TripsClientProps> = ({
             subtitle="Where you've been and where you're going"
             
             />
-            <div className="mt-8 grid grid-cols-1 
+            <div className="mt-10 grid grid-cols-1 
             sm:grid-cols-2
              md:grid-cols-3
               lg:grid-cols-4
