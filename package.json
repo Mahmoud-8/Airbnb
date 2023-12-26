@@ -19,7 +19,7 @@
     "eslint": "8.36.0",
     "eslint-config-next": "13.2.4",
     "leaflet": "^1.9.3",
-    "next": "13.2.4",
+    "next": "^13.5.6",
     "next-auth": "^4.20.1",
     "next-cloudinary": "^4.0.1",
     "next-superjson-plugin": "^0.5.6",
@@ -34,7 +34,7 @@
     "react-select": "^5.7.2",
     "react-spinners": "^0.13.8",
     "swr": "^2.1.1",
-    "world-countries": "^4.0.0",
+    "world-countries": "^5.0.0",
     "zustand": "^4.3.6"
   },
   "devDependencies": {
