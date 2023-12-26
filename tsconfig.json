@@ -27,7 +27,9 @@
     "paths": {
       "@/*": [
         "./*"
-      ]
+      ],
+      "leaflet": ["node_modules/leaflet/dist/leaflet-src.js"],
+      "leaflet/dist/images/*": ["node_modules/leaflet/dist/images/*"]
     },
     "forceConsistentCasingInFileNames": true
   },
