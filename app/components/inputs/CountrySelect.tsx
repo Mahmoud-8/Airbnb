@@ -1,6 +1,6 @@
 'use client';
 
-import Select from 'react-select'
+import Select from 'react-select/dist'
 
 import useCountries from '@/app/hooks/useCountries';
 
