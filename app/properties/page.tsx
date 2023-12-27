@@ -29,14 +29,13 @@ const PropertiesPage = async () => {
             <ClientOnly>
                 <EmptyState
                     title="No properties found"
-                    subtitle="You haven't any properties yet."
+             subtitle="You haven't any properties yet."
                 />
             </ClientOnly>
         )
     }
     return (
         <ClientOnly>
-
             <PropertiesClient
             listings={listings}
             currentUser={currentUser}

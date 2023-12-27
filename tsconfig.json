@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "typeRoots": ["./node_modules/@types"], 
-    "types": ["leaflet", /* other types */],
+    "types": ["leaflet",],
     "target": "es5",
     "lib": [
       "dom",
