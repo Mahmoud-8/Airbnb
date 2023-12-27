@@ -39,9 +39,5 @@
   ],
   "exclude": [
     "node_modules"
-  ],
-  "baseUrl": ".",
-  "paths": {
-    "*.png": ["public/images/leaflet/*"]
-  }
+  ]
 }
