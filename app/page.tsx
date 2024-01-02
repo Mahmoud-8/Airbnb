@@ -2,13 +2,10 @@ import Container from "@/app/components/Container";
 import ListingCard from "@/app/components/listings/ListingCard";
 import EmptyState from "@/app/components/EmptyState";
 
-import getListings, { 
-  IListingsParams
-} from "@/app/actions/getListings";
+import getListings, { IListingsParams } from "@/app/actions/getListings";
 import getCurrentUser from "@/app/actions/getCurrentUser";
 import ClientOnly from "./components/ClientOnly";
 import { SafeUser } from "./types";
-
 
 interface HomeProps {
   searchParams: IListingsParams;
@@ -54,8 +51,12 @@ const Home = ({ listings, currentUser }: HomeProps) => {
   );
 };
 
-export async function getServerSideProps() {
-  const searchParams: IListingsParams = /* some logic to get search params */;
+export async function getServerSideProps(context: any) {
+  const searchParams: IListingsParams = {
+    userId: context.query.userId,
+    guestCount: context.query.guestCount,
+    // Add other parameters based on your needs...
+  };
 
   try {
     const listings = await getListings(searchParams);
