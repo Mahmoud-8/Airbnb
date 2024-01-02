@@ -9,18 +9,16 @@ import getCurrentUser from "@/app/actions/getCurrentUser";
 import ClientOnly from "./components/ClientOnly";
 import { SafeUser } from "./types";
 
+
 interface HomeProps {
   searchParams: IListingsParams;
-  
-};
+  listings: any[]; // Adjust the type as needed
+  currentUser: SafeUser | null;
+}
 
-const Home = async ({ searchParams }: HomeProps) => {
-  const listings = await getListings(searchParams);
-  const currentUser: SafeUser | null = await getCurrentUser();
-
+const Home = ({ listings, currentUser }: HomeProps) => {
   if (listings.length === 0) {
     return (
-
       <ClientOnly>
         <EmptyState showReset />
       </ClientOnly>
@@ -30,13 +28,13 @@ const Home = async ({ searchParams }: HomeProps) => {
   return (
     <ClientOnly>
       <Container>
-        <div 
+        <div
           className="
             pt-24
-            grid 
-            grid-cols-1 
-            sm:grid-cols-2 
-            md:grid-cols-3 
+            grid
+            grid-cols-1
+            sm:grid-cols-2
+            md:grid-cols-3
             lg:grid-cols-4
             xl:grid-cols-5
             2xl:grid-cols-6
@@ -53,7 +51,33 @@ const Home = async ({ searchParams }: HomeProps) => {
         </div>
       </Container>
     </ClientOnly>
-  )
+  );
+};
+
+export async function getServerSideProps() {
+  const searchParams: IListingsParams = /* some logic to get search params */;
+
+  try {
+    const listings = await getListings(searchParams);
+    const currentUser: SafeUser | null = await getCurrentUser();
+
+    return {
+      props: {
+        searchParams,
+        listings,
+        currentUser,
+      },
+    };
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    return {
+      props: {
+        searchParams,
+        listings: [],
+        currentUser: null,
+      },
+    };
+  }
 }
 
 export default Home;
