@@ -7,18 +7,20 @@ import getListings, {
 } from "@/app/actions/getListings";
 import getCurrentUser from "@/app/actions/getCurrentUser";
 import ClientOnly from "./components/ClientOnly";
+import { SafeUser } from "./types";
 
 interface HomeProps {
-  searchParams: IListingsParams
+  searchParams: IListingsParams;
+  
 };
 
 const Home = async ({ searchParams }: HomeProps) => {
   const listings = await getListings(searchParams);
-  const currentUser = await getCurrentUser();
+  const currentUser: SafeUser | null = await getCurrentUser();
 
   if (listings.length === 0) {
     return (
-      
+
       <ClientOnly>
         <EmptyState showReset />
       </ClientOnly>
