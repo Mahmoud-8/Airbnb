@@ -16,7 +16,7 @@ interface HomeProps {
   
 };
 
-const Home = async ({ searchParams = {} }: HomeProps) => {
+const Home = async ({ searchParams }: HomeProps) => {
 
 
   const listings = await getListings(searchParams);
