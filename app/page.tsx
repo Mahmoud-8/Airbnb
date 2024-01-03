@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic"
+
 
 import Container from "@/app/components/Container";
 import ListingCard from "@/app/components/listings/ListingCard";
@@ -16,7 +18,7 @@ interface HomeProps {
   
 };
 
-const Home = async ({ searchParams }: HomeProps) => {
+const Home = async ({ searchParams = {} }: HomeProps) => {
 
 
   const listings = await getListings(searchParams);
