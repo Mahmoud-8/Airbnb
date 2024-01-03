@@ -28,6 +28,10 @@ export default async function getListings(
 
     let query: any = {};
 
+    if (userId) {
+      query.userId = userId;
+    }
+
     if (category) {
       query.category = category;
     }
@@ -70,23 +74,6 @@ export default async function getListings(
             ]
           }
         }
-      }
-    }
-
-    // Check if userId is present and exists in the database
-    if (userId) {
-      const user = await prisma.user.findUnique({
-        where: {
-          id: userId,
-        },
-      });
-
-      if (user) {
-        // Add the condition to the query
-        query.userId = userId;
-      } else {
-        // Handle the case where the user doesn't exist
-        throw new Error(`User with id ${userId} not found`);
       }
     }
 
