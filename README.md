@@ -1,6 +1,6 @@
 # Full Stack Airbnb Clone with Next.js 13 App Router
 
-![Alt text](<Screenshot 2024-01-04 at 2.50.23 PM.png>)
+![Alt text](<img/Screenshot 2024-01-04 at 2.50.23 PM.png>)
 
 ## Project Overview
 
