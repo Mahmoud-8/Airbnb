@@ -1,6 +1,5 @@
 # Full Stack Airbnb Clone with Next.js 13 App Router
 
-![Alt text](<Screenshot 2024-01-04 at 2.50.23 PM.png>)
 
 
 ## Project Overview
@@ -8,6 +7,8 @@
 This repository contains a Full Stack Airbnb Clone with Next.js 13 App Router. The project is built using React, Tailwind, Prisma, MongoDB, and NextAuth.
 
 **VIDEO TUTORIAL:** [Watch the Video](https://youtu.be/YYHlNdip-zY)
+**VIDEO TUTORIAL:** [Watch the Video](https://youtu.be/YYHlNdip-zY)
+
 
 ## Features
 
